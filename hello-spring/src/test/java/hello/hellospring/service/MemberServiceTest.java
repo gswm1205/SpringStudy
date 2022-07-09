@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 //test만드는 단축키 : command + shift + t
 class MemberServiceTest {
 
+    //만약 MemoryMemberRepository의 Map이 static이 아니라면? ->
     MemberService memberService = new MemberService();
     MemoryMemberRepository memberRepository = new MemoryMemberRepository();
 

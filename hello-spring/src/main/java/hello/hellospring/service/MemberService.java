@@ -8,7 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository= new MemoryMemberRepository();
+    //같은 repository로 하고 싶다면... -> constructor 외부에서 넣어주기로 바꾼다
+    //private final MemberRepository memberRepository= new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+
 
     /**
     *회원가입

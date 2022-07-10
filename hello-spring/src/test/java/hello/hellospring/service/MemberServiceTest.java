@@ -4,6 +4,7 @@ import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -14,9 +15,23 @@ import static org.junit.jupiter.api.Assertions.*;
 //test만드는 단축키 : command + shift + t
 class MemberServiceTest {
 
-    //만약 MemoryMemberRepository의 Map이 static이 아니라면? ->
+    //만약 MemoryMemberRepository의 Map이 static이 아니라면? -> 다른 Repository가 된다!
+    // 그러면 같은 repository를 사용해서 테스트를 하고 싶다면?
+    /*
     MemberService memberService = new MemberService();
     MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+     */
+
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
+
+    //이걸 만들어!
+    @BeforeEach
+    public void beforeEach(){
+        //memberRepository를 외부에서 넣어줌 = Dependency Injection = DI
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+    }
 
     @AfterEach
     public void afterEach(){

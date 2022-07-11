@@ -15,7 +15,7 @@ public class MemberService {
     //private final MemberRepository memberRepository= new MemoryMemberRepository();
     private final MemberRepository memberRepository;
 
-    //여기도 repostiory 자동연결
+    //MemberService를 container에 등록하면서 호출하여 MemoryMemberRepository(구현체) 연결
     @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;

@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
     //같은 repository로 하고 싶다면... -> constructor 외부에서 넣어주기로 바꾼다
     //private final MemberRepository memberRepository= new MemoryMemberRepository();
     private final MemberRepository memberRepository;
 
     //MemberService를 container에 등록하면서 호출하여 MemoryMemberRepository(구현체) 연결
-    @Autowired
+    //@Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
